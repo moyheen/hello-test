@@ -1,17 +1,9 @@
+.idea
 *.iml
+local.properties
+build
 .gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-*.jks
-*.apk
-*.ap_
-*.class
-bin/
-gen/
-out/
-
-
-
+# Eclipse project files
+.project
+.settings/	
+.classpath
