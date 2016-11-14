@@ -18,6 +18,8 @@ public interface MainContract {
 
     interface Presenter extends BasePresenter {
 
-        void composeGreeting(@NonNull String firstname);
+        String composeGreeting(@NonNull String firstname);
+
+        String composeEmptyGreeting();
     }
 }

@@ -1,6 +1,6 @@
 package com.moyinoluwa.hellotest.greeting;
 
-import javax.inject.Inject;
+import android.support.annotation.NonNull;
 
 /**
  * Created by moyinoluwa on 11/14/16.
@@ -8,20 +8,16 @@ import javax.inject.Inject;
 
 public final class MainPresenter implements MainContract.Presenter {
 
-    private final MainContract.View mMainView;
-
-    @Inject
-    MainPresenter(MainContract.View mainView) {
-        mMainView = mainView;
+    @Override
+    public String composeGreeting(@NonNull String firstname) {
+        return "Hello " + firstname;
     }
 
     @Override
-    public void composeGreeting(String firstname) {
-
-        String greeting = "Hello " + firstname;
-
-        mMainView.showGreeting(firstname);
+    public String composeEmptyGreeting() {
+        return "Hello stranger :)";
     }
+
 
     @Override
     public void start() {
