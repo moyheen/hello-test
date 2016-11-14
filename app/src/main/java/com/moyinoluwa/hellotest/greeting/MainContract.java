@@ -1,5 +1,7 @@
 package com.moyinoluwa.hellotest.greeting;
 
+import android.support.annotation.NonNull;
+
 import com.moyinoluwa.hellotest.BasePresenter;
 import com.moyinoluwa.hellotest.BaseView;
 
@@ -11,11 +13,11 @@ public interface MainContract {
 
     interface View extends BaseView<Presenter> {
 
-        void showGreeting();
+        void showGreeting(@NonNull String greeting);
     }
 
     interface Presenter extends BasePresenter {
 
-        void composeGreeting();
+        void composeGreeting(@NonNull String firstname);
     }
 }
