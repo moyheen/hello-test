@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     EditText editText;
     TextView textView;
-    MainContract.Presenter mainPresenter;
+    MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         editText = (EditText) findViewById(R.id.edittext);
         textView = (TextView) findViewById(R.id.hello_textview);
+
+        mainPresenter = new MainPresenter(this);
     }
 
     @Override
@@ -30,20 +32,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void setPresenter(MainContract.Presenter presenter) {
-        mainPresenter = presenter;
+    public void setPresenter(@NonNull MainContract.Presenter presenter) {
     }
 
     public void displayGreeting(View view) {
-        String greeting = editText.getText().toString();
+        String greeting;
 
-        if (greeting.isEmpty()) {
-            greeting = mainPresenter.composeEmptyGreeting();
+        if (editText.getText().toString().isEmpty()) {
+            mainPresenter.composeEmptyGreeting();
         } else {
-            greeting = mainPresenter.composeGreeting(greeting);
+            greeting = editText.getText().toString();
+            mainPresenter.composeGreeting(greeting);
         }
-
-        showGreeting(greeting);
     }
-
 }
