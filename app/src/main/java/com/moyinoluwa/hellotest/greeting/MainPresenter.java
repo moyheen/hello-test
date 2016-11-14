@@ -17,15 +17,14 @@ public final class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void composeGreeting(@NonNull String firstname) {
-        mMainView.showGreeting("Hello " + firstname);
-    }
+    public void composeGreeting(String firstname) {
 
-    @Override
-    public void composeEmptyGreeting() {
-        mMainView.showGreeting("Hello stranger :)");
+        if(firstname.isEmpty()) {
+            mMainView.showGreeting("Hello stranger :)");
+        } else {
+            mMainView.showGreeting("Hello " + firstname);
+        }
     }
-
 
     @Override
     public void start() {

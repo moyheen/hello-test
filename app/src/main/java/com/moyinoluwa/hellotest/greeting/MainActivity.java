@@ -36,13 +36,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     public void displayGreeting(View view) {
-        String greeting;
-
-        if (editText.getText().toString().isEmpty()) {
-            mainPresenter.composeEmptyGreeting();
-        } else {
-            greeting = editText.getText().toString();
-            mainPresenter.composeGreeting(greeting);
-        }
+        mainPresenter.composeGreeting(editText.getText().toString());
     }
 }
