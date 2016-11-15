@@ -3,6 +3,7 @@
 local.properties
 build
 .gradle
+.DS_Store
 # Eclipse project files
 .project
 .settings/	
